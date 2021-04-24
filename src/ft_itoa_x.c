@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_x_upp.c                                    :+:      :+:    :+:   */
+/*   ft_itoa_x.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 17:12:47 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/09 16:05:06 by xuwang           ###   ########.fr       */
+/*   Created: 2021/04/24 21:34:54 by xuwang            #+#    #+#             */
+/*   Updated: 2021/04/24 21:34:55 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "libft.h"
 
@@ -29,11 +30,10 @@ static int ft_strlen_base(int n, int base)
     return (i);
 }
 
-char *ft_itoa_x_upp(unsigned int n, int base)
+char  *ft_itoa_x(unsigned int n, int base, int option)
 {
     int len;
     char *str;
-
 
     len = 1;
     len = ft_strlen_base(n, base);
@@ -43,7 +43,10 @@ char *ft_itoa_x_upp(unsigned int n, int base)
     str[len] = '\0';
     while (len--)
     {
-        str[len] = (n % base <= 9) ? n % base + '0' : n % base - 10 + 'A';
+        if (option > 0)
+            str[len] = (n % base <= 9) ? n % base + '0' : n % base - 10 + 'A';
+        else
+            str[len] = (n % base <= 9) ? n % base + '0' : n % base - 10 + 'a';
         n = n / base;
     }
     return (str);

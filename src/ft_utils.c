@@ -1,11 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/24 21:35:43 by xuwang            #+#    #+#             */
+/*   Updated: 2021/04/24 21:35:44 by xuwang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "ft_printf.h"
 
-void    ft_putchar(char c)
+void    ft_putchar(char c)  //输出字符
 {
     write(1, &c, 1);
 }
 
-int  ft_putstr_len(char *str)
+int     ft_putchar_len(char c)
+{
+    write(1, &c, 1);
+    return (1);
+}
+
+int  ft_putstr_len(char *str)  //输出字符串 返回长度
 {
     int i;
 
@@ -15,16 +34,32 @@ int  ft_putstr_len(char *str)
     write (1, str, i);
     return (i);
 }
-//输出最大的字符串并且返回长度，'s' 有'.'情况下后面的值代表可输出最长字符串，长截断，短不变
-int    ft_prec_strmax(char *str, int prec)
+
+size_t	ft_strlen(const char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return i;
+}
+
+
+int     ft_width(int nb, int len, int zero)
 {
     int i;
 
     i = 0;
-    if(!str)
-        return (0);
-    while (str[i] && i < prec)
-        ft_putchar(str[i++]);
+    while (nb - len > 0)
+    {
+        if (zero)
+            ft_putchar('0');
+        else
+            ft_putchar (' ');
+        nb--;
+        i++;
+    }
     return (i);
 }
 

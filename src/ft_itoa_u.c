@@ -1,41 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_itoa_u.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/24 21:38:26 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/24 21:38:27 by xuwang           ###   ########.fr       */
+/*   Created: 2021/04/24 21:34:50 by xuwang            #+#    #+#             */
+/*   Updated: 2021/04/24 21:34:51 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+static int ft_count(unsigned int n)
 {
-	char *tab;
-	size_t len;
 	int i;
-	int j;
-
+	
 	i = 0;
-	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	tab = (char *)malloc(sizeof(char) * len);
-	if (!tab)
-		return (NULL);
-	while (i < len && s1[i])
+	while (n)
 	{
-		tab[i] = s1[i];
+		n = n / 10;
 		i++;
 	}
+	return (i);
+}
 
-	while (i < len && s2[j])
-		tab[i++] = s2[j++];
-	tab[i] = '\0';
-	return (tab);
+char *ft_itoa_u(unsigned int nb)
+{
+	char *dst;
+	size_t len;
+
+	len = ft_count(nb);
+	dst = (char *)malloc(sizeof(char) * len + 1);
+	if (!dst)
+		return (NULL);
+	dst[len] = '\0';
+	while (len--)
+	{
+		dst[len] = nb % 10 + '0';
+		nb = nb / 10;
+	}
+	return (dst);
 }
