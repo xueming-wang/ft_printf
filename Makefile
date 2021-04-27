@@ -6,7 +6,7 @@
 #    By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 16:50:54 by xuwang            #+#    #+#              #
-#    Updated: 2021/04/24 21:27:00 by xuwang           ###   ########.fr        #
+#    Updated: 2021/04/27 20:05:49 by xuwang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,25 +27,39 @@ SRCS	:= 	ft_printf.c \
 			src/ft_itoa_x.c \
 			src/ft_itoa.c \
 			src/check_flag_type.c \
-			src/ft_flags.c \
+			src/ft_flags.c
 			
+SRCS_O  := 	ft_printf.o \
+			ft_utils.o \
+			ft_printf_c_percent.o \
+			ft_printf_d_i.o \
+			ft_printf_p.o \
+			ft_printf_s.o \
+			ft_printf_u.o \
+			ft_printf_x.o \
+			ft_itoa_u.o \
+			ft_itoa_x.o \
+			ft_itoa.o \
+			check_flag_type.o \
+			ft_flags.o			
 
-
-OBJS = $(SRCS:.c=.o)
+OBJS := $(SRCS:.c=.o)
 
 $(NAME):
-	$(CC) -c $(FLAGS) $(SRCS)
-	ar rc $(NAME) $(OBJS)
-
+	# $(CC) $(CFLAGS) -I. -c $(SRCS)
+	$(CC) -I. -c $(SRCS)
+	ar -rc $(NAME) $(SRCS_O)
 
 all: $(NAME)
 
-clean:
-	rm -rf $(OBJS)
+clean:	
+		rm -rf $(SRCS_O)
+		rm -rf $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+		rm -rf $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re
+	

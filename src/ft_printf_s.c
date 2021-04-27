@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:26 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/24 21:35:27 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/26 14:04:56 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int  ft_printf_s(char *str, t_flag flag)
     len = ft_strlen(str);
     if (!str)
         str = "(null)";
-    if (flag.prec >= 0 && (size_t)flag.prec > len);
+    if (flag.prec >= 0 && (size_t)flag.prec > len)
         flag.prec = len;
     if (flag.minus)               
         i += ft_prec_str(str, flag);

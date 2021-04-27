@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:51 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/24 21:35:52 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/27 20:46:11 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 
 typedef struct  s_flag
@@ -44,16 +46,16 @@ int         ft_printf_p(void *p, t_flag flag);
 int         ft_printf_s(char *str, t_flag flag);
 int         ft_printf_u(unsigned int nb, t_flag flag);
 int         ft_printf_x(unsigned int nb, t_flag flag, int option);
-int         type_list(char c);
-int         flag_list(char c);
-int         flag_check(const char *format, int i, va_list list, t_flag *flag);
-int         type_check(char c, va_list list, t_flag flag);
-int         printf_check(const char *format, va_list list);
+int         type_list(int c);
+int         flag_list(int c);
+int         flag_check(const char *format, int i, va_list *list, t_flag *flag);
+int         type_check(int c, va_list *list, t_flag flag);
+int         printf_check(const char *format, va_list *list);
 
 t_flag      ft_flag_minus(t_flag flag);
-t_flag      ft_flag_prec(t_flag flag, const char *format, va_list list);
-t_flag      ft_flag_start(t_flag flag, va_list list);
-t_flag      ft_flag_width(t_flag flag, const char *format);
+int ft_flag_prec(t_flag *flag, int i, const char *format, va_list list);
+t_flag      ft_flag_start(t_flag flag, va_list *list);
+t_flag      ft_flag_width(t_flag flag, char c);
 
 
 

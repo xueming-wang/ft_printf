@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:31 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/24 21:35:32 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/26 14:06:05 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int ft_all_int (char *str, t_flag flag) //str是正数
 
     i = 0;
     len = ft_strlen(str);
-    if (flag.prec >= 0 && flag.prec < len) //prec数小于str长度 长度不变输出str长度len;
+    if (flag.prec >= 0 && (size_t)flag.prec < len) //prec数小于str长度 长度不变输出str长度len;
         flag.prec = len; 
 
     if (flag.minus >= 0)

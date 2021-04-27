@@ -6,11 +6,12 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 17:06:08 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/24 21:17:21 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/27 20:45:38 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
 t_flag  ft_init_flag()
 {
     t_flag flag;
@@ -23,12 +24,12 @@ t_flag  ft_init_flag()
     return (flag);
 }
 
-int printf_check(const char *format, va_list list)
+int printf_check(const char *format, va_list *list)
 {
     int i;
     int count;
-    t_flag flag
-    ;
+    t_flag flag;
+    
     i = 0;
     count = 0;
     while (format[i])
@@ -36,10 +37,9 @@ int printf_check(const char *format, va_list list)
         flag = ft_init_flag();
         if (format[i] == '%' && format[i + 1])
         {
-            i = flag_check(format, list, flag);
-            if (format[i] && type_list(format[i]))
-                count += type_check(format[i], list, flag);
-    
+            i = flag_check(format, ++i, list, &flag);
+            if (type_list(format[i]))
+                count += type_check(flag.type, list, flag);
         }
         else if (format[i] != '%')
                 count += ft_putchar_len(format[i]);
@@ -48,15 +48,13 @@ int printf_check(const char *format, va_list list)
     return (count);
 }
 
-
 int ft_printf(const char *format, ...)
 {
     int i;
     va_list list;
-
+    
     va_start(list, format);
-    i = printf_check(format, list);
+    i = printf_check(format, &list);
     va_end(list);
     return (i);
 }
-

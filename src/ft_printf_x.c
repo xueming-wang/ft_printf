@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:38 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/24 21:35:39 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/26 14:06:21 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int  ft_all_x(char *str, t_flag flag)
 
     i = 0;
     len = ft_strlen(str);
-    if (flag.prec >= 0 && flag.prec <= len)
+    if (flag.prec >= 0 && (size_t)flag.prec <= len)
         flag.prec = len;
     if (flag.minus)
         i += ft_prec_x(str, flag);

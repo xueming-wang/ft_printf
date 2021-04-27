@@ -6,12 +6,12 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:34:59 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/24 21:35:00 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/25 22:01:10 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "libft.h"
+#include "ft_printf.h"
 static int ft_count(int n)
 {
 	int i;
