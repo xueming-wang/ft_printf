@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:51 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/27 20:46:11 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/28 17:05:33 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ typedef struct  s_flag
 
 }              t_flag;
 
-char        *ft_itoa_u(unsigned int n);
 char        *ft_itoa(int n);
+char        *ft_itoa_u(unsigned int n);
 char        *ft_itoa_x(unsigned int n, int base, int option);
+char        *ft_itoa_p(unsigned long long n, int base, int option);
 void        ft_putchar(char c);
 size_t	ft_strlen(const char *str);
 int         ft_width(int nb, int len, int zero);
@@ -53,7 +54,7 @@ int         type_check(int c, va_list *list, t_flag flag);
 int         printf_check(const char *format, va_list *list);
 
 t_flag      ft_flag_minus(t_flag flag);
-int ft_flag_prec(t_flag *flag, int i, const char *format, va_list list);
+int         ft_flag_prec(t_flag *flag, int i, const char *format, va_list *list);
 t_flag      ft_flag_start(t_flag flag, va_list *list);
 t_flag      ft_flag_width(t_flag flag, char c);
 

@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:31 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/26 14:06:05 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/28 13:43:22 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int ft_all_int (char *str, t_flag flag) //str是正数
     if (flag.prec >= 0 && (size_t)flag.prec < len) //prec数小于str长度 长度不变输出str长度len;
         flag.prec = len; 
 
-    if (flag.minus >= 0)
+    if (flag.minus == 1)
         i += ft_prec_int (str, flag);        // 有‘-’ 没有点字符不变12345; 或 有‘-’ 有点，0012345；
     if (flag.prec >= 0)                          //有点的情况 ，prec > len 或者 prec < len ；减去prec长度不同；
         i += ft_width(flag.width, flag.prec, 0); //总长度-prec长度 或者-str长度 空空空-0012345 或 -0012345空空；

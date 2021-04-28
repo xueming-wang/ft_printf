@@ -6,7 +6,7 @@
 #    By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 16:50:54 by xuwang            #+#    #+#              #
-#    Updated: 2021/04/27 20:05:49 by xuwang           ###   ########.fr        #
+#    Updated: 2021/04/28 17:06:05 by xuwang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	:= 	ft_printf.c \
 			src/ft_printf_s.c \
 			src/ft_printf_u.c \
 			src/ft_printf_x.c \
+			src/ft_itoa_p.c \
 			src/ft_itoa_u.c \
 			src/ft_itoa_x.c \
 			src/ft_itoa.c \
@@ -37,6 +38,7 @@ SRCS_O  := 	ft_printf.o \
 			ft_printf_s.o \
 			ft_printf_u.o \
 			ft_printf_x.o \
+			ft_itoa_p.o \
 			ft_itoa_u.o \
 			ft_itoa_x.o \
 			ft_itoa.o \

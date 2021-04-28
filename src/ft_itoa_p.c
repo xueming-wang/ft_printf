@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_x.c                                        :+:      :+:    :+:   */
+/*   ft_itoa_p.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/24 21:34:54 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/28 17:02:28 by xuwang           ###   ########.fr       */
+/*   Created: 2021/04/28 17:01:28 by xuwang            #+#    #+#             */
+/*   Updated: 2021/04/28 17:05:00 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "ft_printf.h"
 
-static int ft_strlen_base(unsigned int n, int base)
+static int ft_strlen_base(unsigned long long n, int base)
 {
     int i;
 
@@ -30,7 +29,7 @@ static int ft_strlen_base(unsigned int n, int base)
     return (i);
 }
 
-char  *ft_itoa_x(unsigned int n, int base, int option)
+char  *ft_itoa_p(unsigned long long n, int base, int option)
 {
     int len;
     char *str;

@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:34:44 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/27 21:22:38 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/27 22:14:10 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ t_flag  ft_flag_minus(t_flag flag)
     return (flag);
 }
 
-int ft_flag_prec(t_flag *flag, int i, const char *format, va_list list)  
+int ft_flag_prec(t_flag *flag, int i, const char *format, va_list *list)  
 {
     // if(format[i] == '.')
     //     i++;
     if (format[i] == '*')    //有‘.' 点后面的 '*'
     {   
-        flag->prec = va_arg(list, int);
+        flag->prec = va_arg(*list, int);
         i++;
     }
     else                      // 有'.' 没有 ‘*’

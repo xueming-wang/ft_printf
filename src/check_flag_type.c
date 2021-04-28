@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:34:34 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/27 21:21:57 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/27 22:15:33 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int  flag_check(const char *format, int i, va_list *list, t_flag *flag) //i 是 
         if (format[i] == '*')
             *flag = ft_flag_start(*flag, list);
         if (format[i] == '.')
-            i = ft_flag_prec(flag, ++i, format, *list);
+            i = ft_flag_prec(flag, ++i, format, list);
         if (format[i] >= '0' && format[i] <= '9')
             *flag = ft_flag_width(*flag, format[i]);
         if (type_list(format[i]))

@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:15 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/27 20:11:52 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/27 22:30:25 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int  ft_printf_d_i(int nb, t_flag flag)
 
     save = nb;
     i = 0;
-    if (nb == 0 && flag.prec == 0)
+    if (nb == 0 && flag.prec >= 0)
     {
         i += ft_width(flag.width, 0, 0);
         return (i);

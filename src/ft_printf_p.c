@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:22 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/26 14:06:40 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/28 17:06:17 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int ft_all_p(char *str, t_flag flag) //str是正数
     len = ft_strlen(str);
     if (flag.prec >= 0 && (size_t)flag.prec < len) 
         flag.prec = len; 
-    if (flag.minus >= 0)   //有点输出0x001234  没有点1234
+    if (flag.minus == 1)   //有点输出0x001234  没有点1234
         i += ft_prec_p (str, flag);        
     if (flag.prec >= 0)                          
         i += ft_width(flag.width, flag.prec + 2, 0); //有点有‘-’就不可能有‘0’ 后面加空 0x00123空空  , 有点没有‘-’ 首先输出空格 不会输出0；
@@ -47,7 +47,7 @@ static int ft_all_p(char *str, t_flag flag) //str是正数
         if (!flag.zero && !flag.minus)
             i += ft_putstr_len("0x");   //空空空0x
     }
-    if (!flag.minus)
+    if (flag.minus == 0)
         i += ft_prec_p (str, flag); //没有‘-’有点 ；空空空0x0012345；没有‘-’没有点 ；空空空0x12345；
     return (i);
 }
@@ -69,7 +69,7 @@ static int ft_all_p(char *str, t_flag flag) //str是正数
     }
     if(flag.zero || flag.minus || (flag.minus && flag.prec))
         i += ft_putstr_len("0x");
-    save = ft_itoa_x((unsigned long long)p, 16, 1);
+    save = ft_itoa_p((unsigned long long)p, 16, 0);
     i += ft_all_p(save, flag);
     free(save);
     return (i);
