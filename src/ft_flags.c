@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:34:44 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/27 22:14:10 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/28 18:07:59 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 t_flag  ft_flag_minus(t_flag flag)
 {
+    flag.zero = 0;
     flag.minus = 1;
     return (flag);
 }
@@ -47,6 +48,7 @@ t_flag ft_flag_start(t_flag flag, va_list *list)   //   没有‘.'前面的 ‘
     flag.width = va_arg(*list, int);
     if (flag.width < 0)
     {
+        flag.zero = 0;
         flag.width *= -1;
         flag.minus = 1;
     }

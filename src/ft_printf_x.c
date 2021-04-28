@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:38 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/26 14:06:21 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/28 19:21:12 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static int  ft_all_x(char *str, t_flag flag)
     if (flag.minus)
         i += ft_prec_x(str, flag);
     if (flag.prec >= 0)
-        ft_width(flag.width, flag.prec, 0);
+        i += ft_width(flag.width, flag.prec, 0);
     else
-        ft_width(flag.width, len, flag.zero);//没有’-‘ 没有’.' 输出0或者空在前面
+        i += ft_width(flag.width, len, flag.zero);//没有’-‘ 没有’.' 输出0或者空在前面
                                             // 就是输出有‘0’时候就是输出0；或者什么都没有就输出空
                                             //例如 10x 或者 010x
     if (!flag.minus)

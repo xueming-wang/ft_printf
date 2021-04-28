@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:15 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/27 22:30:25 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/04/28 18:02:05 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,22 @@ int  ft_printf_d_i(int nb, t_flag flag)
     i = 0;
     if (nb == 0 && flag.prec >= 0)
     {
-        i += ft_width(flag.width, 0, 0);
+        if (flag.minus == 1)
+            i += ft_width(flag.prec, 0, 1);
+        i += ft_width(flag.width, flag.prec, 0);
+        if (flag.minus == 0)
+            i += ft_width(flag.prec, 0, 1);
         return (i);
     }
     if (nb < 0 && (flag.zero == 1 || flag.prec >= 0))
     {
-        //if (flag.zero == 1 && flag.prec < 0)
-			//i += ft_putchar_len('-');
+        if (flag.prec < 0 && flag.zero == 0) 
+         {   
+             flag.zero = 0;
+			    i += ft_putchar_len('-');
+         }
+		flag.zero = 1;
+		
         --flag.width;
         nb = -nb;
     } 
