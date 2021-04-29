@@ -6,7 +6,7 @@
 #    By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 16:50:54 by xuwang            #+#    #+#              #
-#    Updated: 2021/04/28 17:06:05 by xuwang           ###   ########.fr        #
+#    Updated: 2021/04/29 13:20:10 by xuwang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,19 +16,19 @@ CFLAGS 	= -Wall -Wextra -Werror
 NAME 	:= libftprintf.a
 
 SRCS	:= 	ft_printf.c \
-			src/ft_utils.c \
-			src/ft_printf_c_percent.c \
-			src/ft_printf_d_i.c \
-			src/ft_printf_p.c \
-			src/ft_printf_s.c \
-			src/ft_printf_u.c \
-			src/ft_printf_x.c \
-			src/ft_itoa_p.c \
-			src/ft_itoa_u.c \
-			src/ft_itoa_x.c \
-			src/ft_itoa.c \
-			src/check_flag_type.c \
-			src/ft_flags.c
+			srcs/ft_utils.c \
+			srcs/ft_printf_c_percent.c \
+			srcs/ft_printf_d_i.c \
+			srcs/ft_printf_p.c \
+			srcs/ft_printf_s.c \
+			srcs/ft_printf_u.c \
+			srcs/ft_printf_x.c \
+			srcs/ft_itoa_p.c \
+			srcs/ft_itoa_u.c \
+			srcs/ft_itoa_x.c \
+			srcs/ft_itoa.c \
+			srcs/check_flag_type.c \
+			srcs/ft_flags.c
 			
 SRCS_O  := 	ft_printf.o \
 			ft_utils.o \
