@@ -31,7 +31,8 @@ typedef struct  s_flag
 
 }              t_flag;
 
-char        *ft_itoa(int n);
+// char        *ft_itoa(int n);
+char *ft_itoa(long n);
 char        *ft_itoa_u(unsigned int n);
 char        *ft_itoa_x(unsigned int n, int base, int option);
 char        *ft_itoa_p(unsigned long long n, int base, int option);

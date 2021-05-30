@@ -6,7 +6,7 @@
 #    By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 16:50:54 by xuwang            #+#    #+#              #
-#    Updated: 2021/04/29 13:20:10 by xuwang           ###   ########.fr        #
+#    Updated: 2021/05/30 15:59:51 by xuwang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ SRCS_O  := 	ft_printf.o \
 OBJS := $(SRCS:.c=.o)
 
 $(NAME):
-	# $(CC) $(CFLAGS) -I. -c $(SRCS)
+	$(CC) $(CFLAGS) -I. -c $(SRCS)
 	$(CC) -I. -c $(SRCS)
 	ar -rc $(NAME) $(SRCS_O)
 

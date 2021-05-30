@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/**************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_printf_d_i.c                                    :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:15 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/28 18:02:05 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/05/30 18:22:35 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static int ft_prec_int (char *str, int nb, t_flag flag)   //str 是正数
     size_t len;
 
     i = 0;
-    len = ft_strlen(str); 
-    if (nb < 0 && flag.prec >= 0 )   //如果是负数先加-号； 有点情况下不用考虑‘0’；
+    len = ft_strlen(str);
+    if (nb < 0 && flag.prec >= 0)   //如果是负数先加-号； 有点情况下不用考虑‘0’；
         i += ft_putchar_len('-');
     if (flag.prec >= 0)  // 不是负数不够prec值前面加0；
         i += ft_width(flag.prec, len, 1);
@@ -43,7 +43,7 @@ static int ft_all_int (char *str, int nb, t_flag flag) //str是正数
         i += ft_width(flag.width, len, 1);
         i += ft_putstr_len(str);
         return (i);
-    } 
+    }
     if (flag.minus == 1)
         i += ft_prec_int (str, nb, flag);        // 有‘-’ 没有点字符不变-12345; 或 有‘-’ 有点，-0012345；
     if (flag.prec >= 0)                          //有点的情况 ，prec > len 或者 prec < len ；减去prec长度不同；
@@ -61,9 +61,11 @@ int  ft_printf_d_i(int nb, t_flag flag)
     int i;
     int save;
     char *str;
+    long tmp;
 
     save = nb;
     i = 0;
+    tmp = nb;
     if (nb == 0 && flag.prec >= 0)
     {
         if (flag.minus == 1)
@@ -76,16 +78,12 @@ int  ft_printf_d_i(int nb, t_flag flag)
     if (nb < 0 && (flag.zero == 1 || flag.prec >= 0))
     {
         if (flag.prec < 0 && flag.zero == 0) 
-         {   
-             flag.zero = 0;
-			    i += ft_putchar_len('-');
-         }
-		flag.zero = 1;
-		
-        --flag.width;
-        nb = -nb;
-    } 
-    str = ft_itoa(nb);
+			   i += ft_putchar_len('-');
+		--flag.width;
+        tmp = nb;
+        tmp *= -1;
+    }
+    str = ft_itoa(tmp);
     i += ft_all_int(str, save, flag);
     free(str);
     return (i);
