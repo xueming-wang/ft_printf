@@ -6,14 +6,14 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:34:34 by xuwang            #+#    #+#             */
-/*   Updated: 2021/05/30 17:43:14 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/05/31 14:19:32 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "ft_printf.h"
 
-int   type_list(int c)
+int	type_list(int c)
 {
     if ((c == 'c') || (c == 's') || (c == 'x') || (c == 'X') || (c == 'u')
         || (c == 'p') || (c == 'd') || (c == 'i') || (c == '%'))
@@ -23,7 +23,7 @@ int   type_list(int c)
         
 }
 
-int  flag_list(int c)
+int	flag_list(int c)
 {
     if ((c == '-') || (c == '.') || (c == '*') || (c >= '0' && c <= '9'))
         return (1);
@@ -31,7 +31,7 @@ int  flag_list(int c)
         return (0);
 }
 
-int  flag_check(const char *format, int i, va_list *list, t_flag *flag) //i 是 第几位
+int	flag_check(const char *format, int i, va_list *list, t_flag *flag) //i 是 第几位
 {
    while (format[i])
     {
