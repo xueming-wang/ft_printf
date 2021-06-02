@@ -6,16 +6,16 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:34:59 by xuwang            #+#    #+#             */
-/*   Updated: 2021/05/30 20:03:53 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/06/02 16:47:58 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "ft_printf.h"
-static int ft_count(long n)
+
+static int	ft_count(long n)
 {
-	int i;
-	
+	int	i;
+
 	if (n == 0)
 		i = 1;
 	else
@@ -28,12 +28,11 @@ static int ft_count(long n)
 	return (i);
 }
 
-
-char *ft_itoa(long n)
+char	*ft_itoa(long n)
 {
-	char *dst;
-	size_t len;
-	unsigned int nb;;
+	char			*dst;
+	size_t			len;
+	unsigned int	nb;
 
 	len = ft_count(n);
 	if (n < 0)
@@ -52,7 +51,7 @@ char *ft_itoa(long n)
 		dst[len] = nb % 10 + '0';
 		nb = nb / 10;
 	}
-	if (n < 0)	
+	if (n < 0)
 		dst[0] = '-';
 	return (dst);
 }

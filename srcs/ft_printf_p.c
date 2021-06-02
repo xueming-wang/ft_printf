@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:22 by xuwang            #+#    #+#             */
-/*   Updated: 2021/05/30 16:36:07 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/06/02 13:34:12 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int ft_all_p(char *str, t_flag flag) //str是正数
     }
     if(flag.zero ||(flag.minus  &&  (flag.prec < 0)))
         i += ft_putstr_len("0x");
-    save = ft_itoa_p((unsigned long long)p, 16, 0);
+    save = ft_itoa_p((unsigned long long)p, 16);
     i += ft_all_p(save, flag);
     free(save);
     return (i);

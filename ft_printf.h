@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:51 by xuwang            #+#    #+#             */
-/*   Updated: 2021/05/30 20:00:24 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/06/02 17:00:59 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_flag
 char	*ft_itoa(long n);
 char	*ft_itoa_u(unsigned int n);
 char	*ft_itoa_x(unsigned int n, int base, int option);
-char	*ft_itoa_p(unsigned long long n, int base, int option);
+char	*ft_itoa_p(unsigned long long n, int base);
 void	ft_putchar(char c);
 size_t	ft_strlen(const char *str);
 int		ft_width(int nb, int len, int zero);

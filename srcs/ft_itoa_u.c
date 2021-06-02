@@ -6,17 +6,16 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:34:50 by xuwang            #+#    #+#             */
-/*   Updated: 2021/04/28 17:01:00 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/06/02 13:16:45 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "ft_printf.h"
 
-static int ft_count(unsigned int n)
+static int	ft_count(unsigned int n)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (n == 0)
 		i = 1;
@@ -28,10 +27,10 @@ static int ft_count(unsigned int n)
 	return (i);
 }
 
-char *ft_itoa_u(unsigned int nb)
+char	*ft_itoa_u(unsigned int nb)
 {
-	char *dst;
-	size_t len;
+	char	*dst;
+	size_t	len;
 
 	len = ft_count(nb);
 	dst = (char *)malloc(sizeof(char) * len + 1);
