@@ -6,7 +6,7 @@
 /*   By: xuwang <xuwang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 21:35:15 by xuwang            #+#    #+#             */
-/*   Updated: 2021/06/02 16:41:26 by xuwang           ###   ########.fr       */
+/*   Updated: 2021/06/02 17:04:34 by xuwang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ static int ft_prec_int (char *str, int nb, t_flag flag)
 	return (i);
 }
 
-static int ft_all_int (char *str, int nb, t_flag flag) //str是正数   
+static int ft_all_int (char *str, int nb, t_flag flag)   
 {
     int i;
     size_t len;
 
     i = 0;
     len = ft_strlen(str);
-    if (flag.prec >= 0 && (size_t)flag.prec < len) //prec数小于str长度 长度不变输出str长度len;
-            flag.prec = len; 
+    if (flag.prec >= 0 && (size_t)flag.prec < len)          
+	 	flag.prec = len; 
    if (flag.zero == 1 && nb < 0 && flag.prec < 0)
     {
         i += ft_putchar_len('-');
@@ -46,14 +46,13 @@ static int ft_all_int (char *str, int nb, t_flag flag) //str是正数
         return (i);
     }
     if (flag.minus == 1)
-        i += ft_prec_int (str, nb, flag);        // 有‘-’ 没有点字符不变 12345; 或 有‘-’ 有点，-0012345；
-    if (flag.prec >= 0)                        
-        i += ft_width(flag.width, flag.prec, 0); //总长度-prec长度 或者-str长度 空空空-0012345 或 -0012345空空；
-    else  //没有点的情况 
-        i += ft_width(flag.width, len, flag.zero); //有‘-’没有‘.'； 只输出width-strlen长度的zero:12345空空  没有'.'没有'-'；空空空12345
-    if (flag.minus == 0)
-        i += ft_prec_int (str, nb, flag); //没有‘-’有点 ；空空空-0012345；没有‘-’没有点 ；空空空12345；
-   
+        i += ft_prec_int (str, nb, flag);      
+	if (flag.prec >= 0)                        
+        i += ft_width(flag.width, flag.prec, 0); 
+    else 
+		i += ft_width(flag.width, len, flag.zero);  
+ 	if (flag.minus == 0)
+        i += ft_prec_int (str, nb, flag);   
     return (i);
 }
 
